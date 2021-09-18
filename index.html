@@ -97,7 +97,7 @@
 		}
 	}
 
-	var Page = {
+	const page = {
 		view: () => {
 			return m("div", {class: "app",style: "background-color:"+context[state.theme].bgTheme}, [
 					m("h2", {class: "welcome-text", style: "color:"+context[state.theme].fgTheme}, "Theme switcher"),
@@ -110,7 +110,7 @@
 		}
 	}
 
-	m.mount(root, Page)
+	m.mount(root, page)
 	</script>
 </body>
 
