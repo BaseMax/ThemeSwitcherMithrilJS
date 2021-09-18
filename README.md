@@ -2,6 +2,8 @@
 
 Theme Switcher using MithrilJS
 
+## MithrilJS Preview
+
 | LIGHT  | DARK |
 | ------------- | ------------- |
 | [![Theme Switcher using MithrilJS](demo1.png)](https://basemax.github.io/ThemeSwitcherMithrilJS/) | [![Theme Switcher using MithrilJS](demo2.png)](https://basemax.github.io/ThemeSwitcherMithrilJS/)|
