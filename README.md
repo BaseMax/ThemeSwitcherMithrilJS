@@ -2,7 +2,7 @@
 
 Theme Switcher using MithrilJS
 
-![Theme Switcher using MithrilJS](demo.png)
+[![Theme Switcher using MithrilJS](demo.png)](https://basemax.github.io/ThemeSwitcherMithrilJS/)
 
 ## What is MithrilJS
 
