@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html dir="en" dir="ltr">
+<head>
+	<title>First Theme Switcher using MithrilJS</title>
+	<style type="text/css">
+	* {
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	.app, html, body {
+		height:100%;
+	}
+	.app {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		font-family: Arial;
+	}
+	.switch-container {
+		margin-left: 20px;
+	}
+	.switch-container input[type="checkbox"]{
+		display: none;
+	}
+	.slider{
+		position: relative;
+		display: inline-block;
+
+		width: 90px;
+		height: 47px;
+
+		left: 0;
+
+		background-color: #34495e;
+
+		border: 2px solid #34495e;
+		border-radius: 40px;
+
+		cursor: pointer;
+	}
+	.slider::before{
+		position: absolute;
+
+		width: 35px;
+		height: 35px;
+
+		top: 5px;
+		right: 5px;
+
+		content: ' ';
+
+		background-color: #ffffff;
+		border-radius: 50%;
+
+		transition: right .2s, background-color .2s;
+	}
+	input[type="checkbox"]:checked + .slider::before{
+		right: 46px;
+		background-color: #34495e;
+	}
+	input[type="checkbox"]:checked + .slider{
+		background-color: #ffffff;
+	}
+	</style>
+</head>
+
+<body>
+	<script type="text/javascript" src="mithril.js"></script>
+	<script type="text/javascript">
+	const root = document.body
+
+	var context = {
+		'LIGHT': {
+			bgTheme: '#34495e',
+			fgTheme: '#ffffff',
+			checked: true
+		},
+		'DARK': {
+			bgTheme: '#ffffff',
+			fgTheme: '#34495e',
+			checked: false
+		}
+	}
+
+	const state = {
+		theme: 'LIGHT',
+		changeTheme: (newTheme) => {
+			state.theme = newTheme
+		},
+		toggleTheme: () => {
+			if(state.theme === 'LIGHT') {
+				state.changeTheme('DARK')
+			} else {
+				state.changeTheme('LIGHT')
+			}
+		}
+	}
+
+	var Page = {
+		view: () => {
+			return m("div", {class: "app",style: "background-color:"+context[state.theme].bgTheme}, [
+					m("h2", {class: "welcome-text", style: "color:"+context[state.theme].fgTheme}, "Theme switcher"),
+					m("label", {class: "switch-container"}, [
+						m("input", {type: "checkbox", onchange: state.toggleTheme, checked: context[state.theme].checked}),
+						m("span", {class: "slider"})
+					])
+				]
+			)
+		}
+	}
+
+	m.mount(root, Page)
+	</script>
+</body>
+
+</html>
