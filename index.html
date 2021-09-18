@@ -100,7 +100,7 @@
 	const page = {
 		view: () => {
 			return m("div", {class: "app",style: "background-color:"+context[state.theme].bgTheme}, [
-					m("h2", {class: "welcome-text", style: "color:"+context[state.theme].fgTheme}, "Theme switcher"),
+					m("h2", {style: "color:"+context[state.theme].fgTheme}, "Theme switcher"),
 					m("label", {class: "switch-container"}, [
 						m("input", {type: "checkbox", onchange: state.toggleTheme, checked: context[state.theme].checked}),
 						m("span", {class: "slider"})
